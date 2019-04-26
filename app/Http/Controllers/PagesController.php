@@ -6,82 +6,148 @@ use Illuminate\Http\Request;
 
 class PagesController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
-        return view('pages.index');
+        $title = 'Bienvenu au CarDealer';
+        return view('pages.index_salma')->with('title', $title);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function register()
+    public function about()
     {
-        //return view('pages.register');
-
-   
-
+        $title = 'About Us';
+        return view('pages.about')->with('title', $title);;
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
+    public function services()
     {
-        //
+        $data = array(
+            'title' => 'Notre Équipe',
+            'services' => ['AIT YAICH YAHIA', 'AKRAFLI SAFAE ' , 'AROUGA SALMA', 'KHIDER MOAD', 'RAHMOUNI MERIEM']
+
+        );
+        return view('pages.services')->with($data);;
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
+
+
+    // Admin
+
+    public function accueil()
     {
-        //
+        $title = 'Espace Admin';
+        return view('Admin.accueil')->with('title', $title);;
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
+    public function gererclient()
     {
-        //
+        $title = 'Liste des Clients';
+        return view('Admin.gererclient')->with('title', $title);;
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
+    public function gererpartenaire()
     {
-        //
+        $title = 'Liste des Partenaires';
+        return view('Admin.gererpartenaire')->with('title', $title);;
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
+    public function gererpannonce()
     {
-        //
+        $title = 'Liste des Annonces';
+        return view('Admin.gererpannonce')->with('title', $title);;
     }
+
+
+    public function profilAdmin()
+    {
+        $title = 'Mon Profil';
+        return view('Admin.profil')->with('title', $title);;
+    }
+
+
+
+    // Client
+    public function client()
+    {
+        $title = '';
+        return view('Client.accueil')->with('title', $title);;
+    }
+
+    public function profil()
+    {
+        $title = 'Mon Profil';
+        return view('Client.profil')->with('title', $title);;
+    }
+
+    public function modifierprofil()
+    {
+        $title = 'Modifier mon profil ';
+        return view('Client.modifierprofil')->with('title', $title);;
+    }
+
+    public function recherche()
+    {
+        $title = 'Recherche';
+        return view('Client.recherche')->with('title', $title);;
+    }
+
+    public function resultat()
+    {
+        $title = 'Resultats de mes recherches  ';
+        return view('Client.resultat')->with('title', $title);;
+    }
+
+
+    //partenaire
+
+    public function part()
+    {
+        $title = '';
+        return view('Partenaire.accueil')->with('title', $title);;
+    }
+
+    public function ajoutvoiture()
+    {
+        $title = 'Ajouter une voiture';
+        return view('Partenaire.ajoutvoiture')->with('title', $title);
+    }
+
+
+
+    public function ajoutannonce()
+    {
+        $title = 'Ajouter une annonce';
+        return view('Partenaire.ajoutannonce')->with('title', $title);
+    }
+
+    public function listereservations()
+    {
+        $title = 'Liste des réservations ';
+        return view('Partenaire.listereservations')->with('title', $title);
+    }
+
+
+    public function profilPartenaire()
+    {
+        $title = 'Mon profil';
+        return view('Partenaire.profil')->with('title', $title);
+    }
+
+
+    public function modifierPartenaire()
+    {
+        $title = 'Modification de profil';
+        return view('Partenaire.modifierprofil')->with('title', $title);
+    }
+
+    /*public function register()
+    {
+        $title = 'Sign Up';
+        return view('auth.register')->with('title', $title);
+    }
+
+    public function login()
+    {
+        $title = 'Login';
+        return view('auth.login')->with('title', $title);
+    }*/
 }

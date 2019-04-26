@@ -26,10 +26,10 @@ class HomeController extends Controller
     {
 
         if (Auth::user()->privilege == 0) 
-            return view("pages.home_client");
+            return view("Client.accueil");
         elseif ( Auth::user()->privilege == 1) {
-            return view("pages.home_partner");
+            return view("Partenaire.accueil");
         }
         else
-            return view("pages.home_admin");    }
+            return view("Admin.accueil");    }
 }
