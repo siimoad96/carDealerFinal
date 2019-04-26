@@ -17,10 +17,14 @@ class CreateVoituresTable extends Migration
             $table->bigIncrements('id');
             $table->string('marque');
             $table->string('type');
-            $table->string('immatricule');
+            $table->string('immatricule')->unique();
             $table->string('modele');
             $table->string('compteur');
             $table->string('boite');
+            $table->string('carburant');
+            $table->biginteger('partenaire_id')->unsigned();
+            $table->foreign('partenaire_id')->references('id')->on('users');
+
             $table->timestamps();
         });
     }

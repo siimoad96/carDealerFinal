@@ -21,8 +21,11 @@ class CreateAnnoncesTable extends Migration
             $table->date('date');
             $table->integer('from');
             $table->integer('to');
-            $table->integer('privilege');
-
+            $table->biginteger('partenaire_id')->unsigned();
+            $table->foreign('partenaire_id')->references('id')->on('users');
+            $table->biginteger('voiture_id')->unsigned();
+            $table->foreign('voiture_id')->references('id')->on('voitures');
+            $table->integer('privilege')->nullable();
             $table->timestamps();
         });
     }

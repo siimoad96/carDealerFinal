@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateDemandesTable extends Migration
+class CreateCommentsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,10 @@ class CreateDemandesTable extends Migration
      */
     public function up()
     {
-        Schema::create('demandes', function (Blueprint $table) {
+        Schema::create('comments', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->integer('privilege');
-            $table->biginteger('annonce_id')->unsigned();
-            $table->foreign('annonce_id')->references('id')->on('annonces');
-            $table->biginteger('client_id')->unsigned();
+            $table->string('comment');
+            $table->biginteger('client_id')->unsigned()->unique();
             $table->foreign('client_id')->references('id')->on('users');
             $table->timestamps();
         });
@@ -31,6 +29,6 @@ class CreateDemandesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('demandes');
+        Schema::dropIfExists('comments');
     }
 }
