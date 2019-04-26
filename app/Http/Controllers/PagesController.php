@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+
+use App\Voiture;
 class PagesController extends Controller
 {
     public function index()
@@ -138,6 +140,7 @@ class PagesController extends Controller
         $title = 'Modification de profil';
         return view('Partenaire.modifierprofil')->with('title', $title);
     }
+
 
     /*public function register()
     {

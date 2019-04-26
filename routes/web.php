@@ -47,6 +47,8 @@ Route::get('/Admin/profil', 'PagesController@profilAdmin');
 //partenaire
 
 Route::get('/Partenaire/ajoutvoiture', 'PagesController@ajoutvoiture');
+Route::post('/Partenaire/ajoutvoiture', 'VoituresController@ajoutVoitureSuccess');
+
 Route::get('/Partenaire/ajoutannonce', 'PagesController@ajoutannonce');
 Route::get('/Partenaire/listereservations', 'PagesController@listereservations');
 Route::get( '/Partenaire/accueil', 'PagesController@part');
