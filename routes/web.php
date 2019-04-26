@@ -48,9 +48,18 @@ Route::get('/Admin/profil', 'PagesController@profilAdmin');
 
 Route::get('/Partenaire/ajoutvoiture', 'PagesController@ajoutvoiture');
 Route::post('/Partenaire/ajoutvoiture', 'VoituresController@ajoutVoitureSuccess');
+Route::post( '/Partenaire/ajoutvoiture', 'VoituresController@uploadImage');
+
 
 Route::get('/Partenaire/ajoutannonce', 'PagesController@ajoutannonce');
+Route::post('/Partenaire/ajoutannonce', 'AnnoncesController@ajoutannonceSuccess');
+
 Route::get('/Partenaire/listereservations', 'PagesController@listereservations');
 Route::get( '/Partenaire/accueil', 'PagesController@part');
 Route::get('/Partenaire/profil', 'PagesController@profilPartenaire');
 Route::get('/Partenaire/modifierprofil', 'PagesController@modifierprofil');
+
+//profile
+
+Route::get('/Partenaire/profile', 'ProfileController@index')->name('profile');
+Route::post('/Partenaire/profile/update', 'ProfileController@updateProfile')->name('profile.update');

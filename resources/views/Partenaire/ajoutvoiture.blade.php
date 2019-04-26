@@ -7,7 +7,7 @@
 
                 <div class="container">
                         <h1>Ajouter une  voiture a louer :</h1> <br>
-                    <form method="POST" action="/Partenaire/ajoutvoiture">
+                    <form method="POST" action="/Partenaire/ajoutvoiture" enctype="multipart/form-data">
                         {{csrf_field()}}
                         <input type="text" class="form-control" placeholder="Marque" name = "marque">
                         <br><br>
@@ -22,6 +22,8 @@
                         <input type="text" class="form-control" placeholder="boite" name = "boite">
                         <br><br>
                         <input type="text" class="form-control" placeholder="carburant" name = "carburant">
+                        <br><br>
+                        <input type="file" class="form-control" placeholder="Image" name = "img_voiture">
                         <br><br>
                         <input type='hidden' name='_token' value='{{ csrf_token() }}'>
                         <input type="submit" class="btn btn-lg btn-info" value="Ajouter" name = "submit">

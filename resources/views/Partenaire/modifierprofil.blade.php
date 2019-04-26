@@ -3,12 +3,10 @@
         <h1 >Vos informations personnelles</h1>
         <div>
             <form action="" method="post">
-                <label>Nom : </label>
-                <input type="text" name="nom" value="<?php ?>">
+                <label>Nom Complet : </label>
+                <input type="text" name="nom" value="{{ Auth::user()->name }}">
                 <br><br>
-                <label>Prenom : </label>
-                <input type="text" name="prenom" value="<?php ?>">
-                <br><br>
+
                 <label>Ville : </label>
                 <input type="text" name="ville" value="<?php ?>">
                 <br><br>
