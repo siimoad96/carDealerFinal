@@ -23,7 +23,7 @@ class VoituresController extends Controller
         $voiture->save();
         return "Added Successfully to database :P ";
     }
-    public function uploadImage(Request $request){
+   /* public function uploadImage(Request $request){
         $this->validate($request,[
             'select_file' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048'
         ]);
@@ -31,5 +31,5 @@ class VoituresController extends Controller
         $new_name = $rand() . '.' . $image-> getClientOriginalExtension();
         $image->move(public_path("images"),$new_name);
         return back()->with('success','Image Uploaded Successfully')->with('path',$new_name);
-    }
+    }*/
 }

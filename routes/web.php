@@ -48,7 +48,7 @@ Route::get('/Admin/profil', 'PagesController@profilAdmin');
 
 Route::get('/Partenaire/ajoutvoiture', 'PagesController@ajoutvoiture');
 Route::post('/Partenaire/ajoutvoiture', 'VoituresController@ajoutVoitureSuccess');
-Route::post( '/Partenaire/ajoutvoiture', 'VoituresController@uploadImage');
+//Route::post( '/Partenaire/ajoutvoiture', 'VoituresController@uploadImage');
 
 
 Route::get('/Partenaire/ajoutannonce', 'PagesController@ajoutannonce');
