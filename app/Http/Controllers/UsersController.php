@@ -1,8 +1,10 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use Illuminate\Http\Request;
+use DB;
+use App\Http\Requests;
+use App\Http\Controllers\Controller;
 
 class UsersController extends Controller
 {
@@ -11,9 +13,18 @@ class UsersController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function indexClient()
     {
-        //
+        $clients = DB::select("select * from `users` where `privilege`='0'");
+        return view( 'Admin.gererClient', ['clients' => $clients]);
+
+
+    }
+    public function indexPartenaire(){
+
+        $partenaires = DB::select("select * from `users` where `privilege`='1'");
+        return view('Admin.gererPartenaire', ['partenaires' => $partenaires]);
+
     }
 
     /**

@@ -39,9 +39,9 @@ Route::get('/Client/resultat', 'PagesController@resultat');
 
 //Admin
 Route::get( '/Admin/accueil', 'PagesController@accueil');
-Route::get('/Admin/gererpartenaire', 'PagesController@gererpartenaire');
+Route::get('/Admin/gererPartenaire', 'UsersController@indexPartenaire');
+Route::get('/Admin/gererClient', 'UsersController@indexClient');
 Route::get('/Admin/gererpannonce', 'PagesController@gererpannonce');
-Route::get('/Admin/gererclient', 'PagesController@gererclient');
 Route::get('/Admin/profil', 'PagesController@profilAdmin');
 
 //partenaire
