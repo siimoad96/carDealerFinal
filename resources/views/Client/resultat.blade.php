@@ -1,74 +1,21 @@
+@extends('layouts.client')
 
-        <h1  >{{$title}}</h1>
+@section('content')
+
+        <h1  ></h1>
         <div >
-            <div>
-                <table>
-                        <tr>
-                            <th>
-                            Marque
-                            </th>
 
-                            <th>
-                            Modèl
-                            </th>
-                             
-                            <th>
-                            De
-                            </th>
+            <h3>Les annonces disponibles </h3><br><br>
+                </div>
 
-                            <th>
-                            A
-                            </th>
-
-                            <th>
-                            Prix
-                            </th>
-
-                            <th>
-                            Note de la voiture
-                            </th>
-
-                            <th>
-                            Demande de réservation
-                            </th>
-
-                        </tr>
-                        <?php ?>
-                        <tr>
-                            <td>
-                                <?php ?>
-                            </td>
-
-                            <td>
-                                 <?php ?>
-                            </td>
-
-                            <td>
-                                  <?php ?>                       
-                            </td>
-
-                            <td>
-                                  <?php ?>
-                            </td>
-
-                            <td>
-                                  <?php ?>
-                            </td>
-
-                            <td>
-                                 <form action="" method="">
-                                    <input type="hidden" name="id_annonce" value="<?php ?>">
-
-                                    <input type="button" value="Demander" name="demande">
-                                 </form>
-                            </td>
-                        </tr>
-                        <?php ?>
                 
-                </table>
-            
+            <form type="POST" action="/Client/reserverAnnonce">
 
-            </div>
-        
-        </div>
-        
+                @foreach($annonces as $annonce)
+                <input type="hidden" name="voiture_id" value='{{$annonce->voiture_id}}'>
+                <div class="form-group"><input name="id" type="hidden" value="{{$annonce -> id}}"></div>
+                <div class="form-group">{{$annonce -> title }}
+               <button type="submit" class="btn btn-lg btn-info" >Consulter</button></div>
+
+                @endforeach                           
+@endsection
