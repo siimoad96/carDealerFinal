@@ -1,3 +1,4 @@
+
 @extends('layouts.partenaire')  
 @section('content')
 
@@ -12,14 +13,15 @@
 
                  {{ csrf_field() }}
 
-                <select type="text" value="{{ $voit->id }}" name = "vehicule">
+                <select type="text"  name = "vehicule">
 
                     @foreach($voitures as $voit)
 
-                    <option>
+                <option value="<?php echo $voit->id; ?>">
                                 
-                        {{  $voit->immatricule  }}  /////////////les voitures disponibles
+                        {{  $voit->immatricule  }}  
                      </option>
+                     @endforeach
 
                 </select><br><br>
 
@@ -28,7 +30,15 @@
 
 
                 <br><br><label>Ville:</label><br><br>
-                <input type="date" name="city" ><br><br>
+                <select type="text" name="city" >
+                @foreach($villes as $v)
+                <option value="{{ $v->city }}">
+                {{ $v->city }}
+                
+                </option>
+                @endforeach
+                </select>
+                <br><br>
 
 
                 <br><br><label>Date:</label><br><br>
@@ -38,28 +48,28 @@
                 <br><br><label>Disponibilité :</label><br><br>
                 <label>De : </label>
 
-                                <select type="text" class="form-control" name = "heureDebut">
+                                <select type="text" class="form-control" name = "from">
                                     <?php
                                         for($i=0;$i<24;$i++)
                                         {
                                             if($i<10)
                                                 echo "<option value=0".$i.">0".$i."h</option>";
                                             else
-                                                echo "<option value=".$i."h".">".$i."h</option>";
+                                                echo "<option value=".$i.">".$i."h</option>";
                                         }
                                         
                                     ?>
                                 </select>
 
                                 <label> à :</label>
-                                <select type="text" class="form-control" name = "heureFin">
+                                <select type="text" class="form-control" name = "to">
                                     <?php
                                         for($i=0;$i<24;$i++)
                                         {
                                             if($i<10)
                                                 echo "<option value=0".$i.">0".$i."h</option>";
                                             else
-                                                echo "<option value=".$i."h".">".$i."h</option>";
+                                                echo "<option value=".$i.">".$i."h</option>";
                                         }
                                         
                                     ?>
@@ -67,8 +77,9 @@
 
                                 <br><br>
                                     <label>Prix par heure :</label> 
-                                <input type="number" class="form-control" placeholder="DH" name = "prixHeure">
+                                <input type="number" class="form-control" placeholder="DH" name = "price">
                                 <br><br>
+                                <input type="hidden" name="privilege" value="0" >
                                 <input type="submit" value="Ajouter" class="btn btn-lg btn-info" name = "submit">
                                 <br><br>
                     </form>

@@ -23,6 +23,15 @@ class VoituresController extends Controller
         $voiture->save();
         return "Added Successfully to database :P ";
     }
+
+
+    //chercher les voitures d'un partenaire
+   /* public function chercher(){
+
+        $voiture =Voiture::where('partenaire_id',Auth::id());
+        $voitures = Array('voiture'=>$voiture);
+        return $voitures;    
+    }*/
    /* public function uploadImage(Request $request){
         $this->validate($request,[
             'select_file' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048'

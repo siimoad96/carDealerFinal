@@ -51,7 +51,10 @@ Route::post('/Partenaire/ajoutvoiture', 'VoituresController@ajoutVoitureSuccess'
 //Route::post( '/Partenaire/ajoutvoiture', 'VoituresController@uploadImage');
 
 
-Route::get('/Partenaire/ajoutannonce', 'PagesController@ajoutannonce');
+//Route::get('/Partenaire/ajoutannonce', 'PagesController@ajoutannonce');
+//Route::post('/Partenaire/ajoutannonce', 'AnnoncesController@ajoutannonceSuccess');
+
+Route::get('/Partenaire/ajoutannonce', 'AnnoncesController@ajoutannonce');
 Route::post('/Partenaire/ajoutannonce', 'AnnoncesController@ajoutannonceSuccess');
 
 Route::get('/Partenaire/listereservations', 'PagesController@listereservations');

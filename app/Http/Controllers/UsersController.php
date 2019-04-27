@@ -3,6 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\User;
+
+use App\Annonce;
+use App\Voiture;
+use Auth;
 
 class UsersController extends Controller
 {
@@ -81,4 +86,13 @@ class UsersController extends Controller
     {
         //
     }
+    //lister les villes existantes
+    public function ville()
+    {
+        $ville = User::select('city')->first();
+        $villes = User::groupBy('city','ASC')->get();
+        return(compact('villes','ville'));
+
+    }
+    
 }
