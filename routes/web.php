@@ -61,15 +61,19 @@ Route::get('/Partenaire/modifierprofil', 'PagesController@modifierprofil');
 
 //profile_partnaire
 
-Route::get('/Partenaire/profile', 'ProfileController@index')->name('profile');
-Route::post('/Partenaire/profile/update', 'ProfileController@updateProfile')->name('profile.update');
+Route::get('/Partenaire/afficherProfile', 'ProfileController@index')->name('profile_partenaire');
+
+//modifier tout profil
+Route::get( '/Partenaire/modifierProfile', 'ProfileController@update')->name( 'profile_partenaire.update');
+Route::post('/Partenaire/modifierProfile/update', 'ProfileController@updateProfile')->name('profile.updateProfile');
+
 
 //profile_admin
 
-Route::get('/Admin/profile', 'ProfileController@index')->name('profile');
+Route::get('/Admin/profile', 'ProfileController@index')->name('profile_admin');
 Route::post('/Admin/profile/update', 'ProfileController@updateProfile')->name('profile.update');
 
 //profile_client
 
-Route::get('/Client/profile', 'ProfileController@index')->name('profile');
+Route::get('/Client/profile', 'ProfileController@index')->name('profile_client');
 Route::post('/Client/profile/update', 'ProfileController@updateProfile')->name('profile.update');

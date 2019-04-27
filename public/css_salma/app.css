@@ -8432,3 +8432,17 @@ body {
   }
 }
 
+.profile-image-default
+  {
+      width: 150px;
+  }
+  .profile-image {
+      width: 150px;
+      height: 150px;;
+  }
+hr {
+    height: 1px;
+    color: #123455;
+    background-color: #123455;
+    border: none;
+}

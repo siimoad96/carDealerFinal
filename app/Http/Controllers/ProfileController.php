@@ -20,12 +20,21 @@ class ProfileController extends Controller
     public function index()
     {
         if (Auth::user()->privilege == 0)
-            return view("Client.profile");
+            return view("Client.afficherProfile");
         elseif (Auth::user()->privilege == 1) {
-            return view("Partenaire.profile");
+            return view("Partenaire.afficherProfile");
         } else
-            return view("Admin.profile");
+            return view("Admin.afficherProfile");
 
+    }
+    public function update()
+    {
+        if (Auth::user()->privilege == 0)
+            return view("Client.modifierProfile");
+        elseif (Auth::user()->privilege == 1) {
+            return view("Partenaire.modifierProfile");
+        } else
+            return view("Admin.modifierProfile");
     }
 
     public function updateProfile(Request $request)
