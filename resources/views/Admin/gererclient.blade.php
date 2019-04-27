@@ -2,7 +2,6 @@
 
     
 <div class="container">
-        <h1 >{{$title}}</h1>
         
             <br> <br> <br>
      
@@ -11,36 +10,27 @@
             <table class="table table-striped">
                     <tr>
                         <th>#</th>
-                        <th>Nom</th>
-                        <th>Prénom</th>
+                        <th>Nom Complet</th>
                         <th>Email</th>
                         <th>Ville</th>
-                        <th>NOTE</th>
                         <th>Tél</th>
                         <th>Modifier client</th>
                         <th>Supprimer client</th>
         
                     </tr>
-                 <?php
-        /*
-                 foreach(getClients($username) as $key => $value) {
-                     ?>
+                    @foreach ($clients as $client)
                     <tr>
-                        <form action="modifier.php" method="POST" >
-                            <td><?= $value['id_user'] ?></td>
-                            <td><?= $value['username'] ?></td>
-                            <td><?= $value['lastname'] ?></td>
-                            <td><?= $value['firstname'] ?></td>
-                            <td><?= $value['cin'] ?></td>
-                            <td><?= $value['address'] ?></td>
-                            <td><?= '0'.$value['tel'] ?></td>
-                            <td> <input type="submit" class="button5" value="Modifier"></td>
-                            <td> <input type="submit" class="button5" value="Supprimer"></td>
-                            <input type="hidden" name="id_client"  value=" <?php echo $value['id_user']; ?>">
-                        </form>
+                        <td>{{ $client->id }}</td>
+                        <td>{{ $client->name }}</td>
+                        <td>{{ $client->email }}</td>
+                        <td>{{ $client->city }}</td>
+                        <td>{{ $client->tel }}</td>
+                        <td>Modifier</td>
+                        <td>Supprimer</td>
+
+
                     </tr>
-                 <?php }*/ ?>
-             
+                    @endforeach
                     </table>
                   
                 
