@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\User;
 use Illuminate\Http\Request;
 use App\Traits\UploadTrait;
+use Illuminate\Support\Facades\Auth;
+
 
 class ProfileController extends Controller
 {
@@ -17,7 +19,13 @@ class ProfileController extends Controller
 
     public function index()
     {
-        return view('auth.profile');
+        if (Auth::user()->privilege == 0)
+            return view("Client.profile");
+        elseif (Auth::user()->privilege == 1) {
+            return view("Partenaire.profile");
+        } else
+            return view("Admin.profile");
+
     }
 
     public function updateProfile(Request $request)

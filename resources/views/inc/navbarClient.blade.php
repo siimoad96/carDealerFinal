@@ -11,7 +11,7 @@
 
           </ul>
           <ul class="nav navbar-nav navbar-right">
-            <li><a href="/Client/profil"><span class="glyphicon glyphicon-user"></span> Profil</a></li>
+            <li><a class="dropdown-item" href="{{ route('profile') }}"><span class="glyphicon glyphicon-user"></span> Profile</a></li>
             <li><a href="{{ route('logout') }}"><span class="glyphicon glyphicon-log-in"></span> Déconnexion</a></li>
           </ul>
         </div>

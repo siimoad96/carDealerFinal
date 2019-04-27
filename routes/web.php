@@ -59,7 +59,17 @@ Route::get( '/Partenaire/accueil', 'PagesController@part');
 Route::get('/Partenaire/profil', 'PagesController@profilPartenaire');
 Route::get('/Partenaire/modifierprofil', 'PagesController@modifierprofil');
 
-//profile
+//profile_partnaire
 
 Route::get('/Partenaire/profile', 'ProfileController@index')->name('profile');
 Route::post('/Partenaire/profile/update', 'ProfileController@updateProfile')->name('profile.update');
+
+//profile_admin
+
+Route::get('/Admin/profile', 'ProfileController@index')->name('profile');
+Route::post('/Admin/profile/update', 'ProfileController@updateProfile')->name('profile.update');
+
+//profile_client
+
+Route::get('/Client/profile', 'ProfileController@index')->name('profile');
+Route::post('/Client/profile/update', 'ProfileController@updateProfile')->name('profile.update');
