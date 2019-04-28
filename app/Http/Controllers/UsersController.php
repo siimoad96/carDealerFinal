@@ -2,17 +2,14 @@
 
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
-<<<<<<< HEAD
 use App\User;
 
 use App\Annonce;
 use App\Voiture;
 use Auth;
-=======
 use DB;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
->>>>>>> a20ce0409235ac6fa4193707c90d8276789fc7b0
 
 class UsersController extends Controller
 {

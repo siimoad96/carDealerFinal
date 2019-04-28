@@ -42,13 +42,18 @@ class ProfileController extends Controller
         // Form validation
         $request->validate([
             'name'              =>  'required',
-            'profile_image'     =>  'required|image|mimes:jpeg,png,jpg,gif|max:2048'
+            'city'              =>  'required',
+            'tel'              =>  'required',
+            'profile_image'     =>  'image|mimes:jpeg,png,jpg,gif|max:2048'
         ]);
 
         // Get current user
         $user = User::findOrFail(auth()->user()->id);
         // Set user name
         $user->name = $request->input('name');
+        $user->city = $request->input('city');
+        $user->tel = $request->input('tel');
+
 
         // Check if a profile image has been uploaded
         if ($request->has('profile_image')) {

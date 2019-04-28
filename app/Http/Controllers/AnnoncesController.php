@@ -3,8 +3,6 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\voiture;
-use App\annonce;
 use DB;
 
 
