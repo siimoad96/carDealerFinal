@@ -1,10 +1,15 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
+use App\User;
 
+use App\Annonce;
+use App\Voiture;
+use Auth;
+use DB;
+use App\Http\Requests;
+use App\Http\Controllers\Controller;
 class HomeController extends Controller
 {
     /**
@@ -32,4 +37,12 @@ class HomeController extends Controller
         }
         else
             return view("Admin.accueil");    }
+
+
+    public function accueilClient()
+    {
+        $annonces = DB::table('annonces')->get();
+        return View::make( 'Client.accueil', ['annonces' => $annonces]);
+    }
+    
 }

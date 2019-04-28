@@ -31,7 +31,7 @@ Route::get('logout', 'Auth\LoginController@logout', function () {
 });
 
 //Client
-Route::get('/Client/accueil', 'PagesController@client');
+Route::get('/Client/accueil', 'HomeController@accueilClient');
 Route::get('/Client/profil', 'PagesController@profil');
 Route::get('/Client/modifierprofil', 'PagesController@modifierprofil');
 Route::get('/Client/recherche', 'PagesController@recherche');
@@ -80,3 +80,17 @@ Route::post('/Admin/profile/update', 'ProfileController@updateProfile')->name('p
 
 Route::get('/Client/profile', 'ProfileController@index')->name('profile_client');
 Route::post('/Client/profile/update', 'ProfileController@updateProfile')->name('profile.update');
+
+// safae
+Route::get('/Client/recherche', 'PagesController@recherche');
+Route::get('/Client/recherche', 'AnnoncesController@recherche');
+Route::post('/Client/recherche', 'AnnoncesController@recherche');
+
+Route::get('/Client/resultat', 'PagesController@resultat');
+Route::get('/Client/resultat', 'AnnoncesController@resultat');
+Route::post('/Client/resultat', 'AnnoncesController@resultat');
+
+
+Route::get('/Client/reserverAnnonce', 'AnnoncesController@reserverAnnonce');
+Route::post('/Client/reserverAnnonce', 'AnnoncesController@reserverAnnonce');
+Route::get('/Client/reserverAnnonce', 'AnnoncesController@reserverAnnonce');
