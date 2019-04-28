@@ -1,4 +1,4 @@
-@extends('layouts.appp')
+@extends('layouts.admin')
 
 @section('content')
     <div class="container">
@@ -32,9 +32,25 @@
                                     <form action="{{ route('profile.update') }}" method="POST" role="form" enctype="multipart/form-data">
                                         @csrf
                                         <div class="form-group row">
+                                            <label for="profile_image" class="col-md-4 col-form-label text-md-right">Profile Image</label>
+                                            <!--<div class="col-md-6">
+                                                <input id="profile_image" type="file" class="form-control" name="profile_image">
+                                                @if (auth()->user()->image)
+                                                    <code>{{ auth()->user()->image }}</code>
+                                                @endif
+                                            </div>-->
+                                            <img src="{{ asset(auth()->user()->profile_image) }}" class="profile_image" />
+                                        </div>
+                                        <div class="form-group row">
                                             <label for="name" class="col-md-4 col-form-label text-md-right">Name</label>
                                             <div class="col-md-6">
                                                 <input id="name" type="text" class="form-control" name="name" value="{{ old('name', auth()->user()->name) }}">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="city" class="col-md-4 col-form-label text-md-right">City</label>
+                                            <div class="col-md-6">
+                                                <input id="city" type="text" class="form-control" name="city" value="{{ old('city', auth()->user()->city) }}" >
                                             </div>
                                         </div>
                                         <div class="form-group row">
@@ -44,12 +60,9 @@
                                             </div>
                                         </div>
                                         <div class="form-group row">
-                                            <label for="profile_image" class="col-md-4 col-form-label text-md-right">Profile Image</label>
+                                            <label for="tel" class="col-md-4 col-form-label text-md-right">Tel</label>
                                             <div class="col-md-6">
-                                                <input id="profile_image" type="file" class="form-control" name="profile_image">
-                                                @if (auth()->user()->image)
-                                                    <code>{{ auth()->user()->image }}</code>
-                                                @endif
+                                                <input id="tel" type="text" class="form-control" name="tel" value="{{ old('tel', auth()->user()->tel) }}" >
                                             </div>
                                         </div>
                                         <div class="form-group row mb-0 mt-5">

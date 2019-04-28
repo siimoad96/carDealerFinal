@@ -39,19 +39,22 @@ Route::get('/Client/resultat', 'PagesController@resultat');
 
 //Admin
 Route::get( '/Admin/accueil', 'PagesController@accueil');
-Route::get('/Admin/gererpartenaire', 'PagesController@gererpartenaire');
+Route::get('/Admin/gererPartenaire', 'UsersController@indexPartenaire');
+Route::get('/Admin/gererClient', 'UsersController@indexClient');
 Route::get('/Admin/gererpannonce', 'PagesController@gererpannonce');
-Route::get('/Admin/gererclient', 'PagesController@gererclient');
 Route::get('/Admin/profil', 'PagesController@profilAdmin');
 
 //partenaire
 
 Route::get('/Partenaire/ajoutvoiture', 'PagesController@ajoutvoiture');
 Route::post('/Partenaire/ajoutvoiture', 'VoituresController@ajoutVoitureSuccess');
-Route::post( '/Partenaire/ajoutvoiture', 'VoituresController@uploadImage');
+//Route::post( '/Partenaire/ajoutvoiture', 'VoituresController@uploadImage');
 
 
-Route::get('/Partenaire/ajoutannonce', 'PagesController@ajoutannonce');
+//Route::get('/Partenaire/ajoutannonce', 'PagesController@ajoutannonce');
+//Route::post('/Partenaire/ajoutannonce', 'AnnoncesController@ajoutannonceSuccess');
+
+Route::get('/Partenaire/ajoutannonce', 'AnnoncesController@ajoutannonce');
 Route::post('/Partenaire/ajoutannonce', 'AnnoncesController@ajoutannonceSuccess');
 
 Route::get('/Partenaire/listereservations', 'PagesController@listereservations');
@@ -59,7 +62,21 @@ Route::get( '/Partenaire/accueil', 'PagesController@part');
 Route::get('/Partenaire/profil', 'PagesController@profilPartenaire');
 Route::get('/Partenaire/modifierprofil', 'PagesController@modifierprofil');
 
-//profile
+//profile_partnaire
 
-Route::get('/Partenaire/profile', 'ProfileController@index')->name('profile');
-Route::post('/Partenaire/profile/update', 'ProfileController@updateProfile')->name('profile.update');
+Route::get('/Partenaire/afficherProfile', 'ProfileController@index')->name('profile_partenaire');
+
+//modifier tout profil
+Route::get( '/Partenaire/modifierProfile', 'ProfileController@update')->name( 'profile_partenaire.update');
+Route::post('/Partenaire/modifierProfile/update', 'ProfileController@updateProfile')->name('profile.updateProfile');
+
+
+//profile_admin
+
+Route::get('/Admin/profile', 'ProfileController@index')->name('profile_admin');
+Route::post('/Admin/profile/update', 'ProfileController@updateProfile')->name('profile.update');
+
+//profile_client
+
+Route::get('/Client/profile', 'ProfileController@index')->name('profile_client');
+Route::post('/Client/profile/update', 'ProfileController@updateProfile')->name('profile.update');

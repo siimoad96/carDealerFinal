@@ -3,9 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
-
+use Auth;
 use App\Voiture;
+use Session;
+
+
 class PagesController extends Controller
 {
     public function index()
@@ -117,8 +119,10 @@ class PagesController extends Controller
 
     public function ajoutannonce()
     {
+        $voiture =Voiture::where('partenaire_id',Auth::id());
+        $voitures = Array('voiture'=>$voiture);
         $title = 'Ajouter une annonce';
-        return view('Partenaire.ajoutannonce')->with('title', $title);
+        return view('Partenaire.ajoutannonce')->with('title', $title)->with('voitures', $voitures);
     }
 
     public function listereservations()

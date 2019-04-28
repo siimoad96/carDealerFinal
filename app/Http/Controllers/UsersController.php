@@ -1,8 +1,18 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use Illuminate\Http\Request;
+<<<<<<< HEAD
+use App\User;
+
+use App\Annonce;
+use App\Voiture;
+use Auth;
+=======
+use DB;
+use App\Http\Requests;
+use App\Http\Controllers\Controller;
+>>>>>>> a20ce0409235ac6fa4193707c90d8276789fc7b0
 
 class UsersController extends Controller
 {
@@ -11,9 +21,18 @@ class UsersController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function indexClient()
     {
-        //
+        $clients = DB::select("select * from `users` where `privilege`='0'");
+        return view( 'Admin.gererClient', ['clients' => $clients]);
+
+
+    }
+    public function indexPartenaire(){
+
+        $partenaires = DB::select("select * from `users` where `privilege`='1'");
+        return view('Admin.gererPartenaire', ['partenaires' => $partenaires]);
+
     }
 
     /**
@@ -81,4 +100,13 @@ class UsersController extends Controller
     {
         //
     }
+    //lister les villes existantes
+    public function ville()
+    {
+        $ville = User::select('city')->first();
+        $villes = User::groupBy('city','ASC')->get();
+        return(compact('villes','ville'));
+
+    }
+    
 }
