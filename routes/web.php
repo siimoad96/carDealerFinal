@@ -36,7 +36,12 @@ Route::get('/Client/reserverAnnonce', 'AnnoncesController@reserverAnnonce');
 
 #################################  Users Controller #################################
 Route::get('/Admin/gererPartenaire', 'UsersController@indexPartenaire');
-Route::get('/Admin/gererClient', 'UsersController@indexClient');
+Route::get('/Admin/gererClient', 'UsersController@indexClient')->name('A_ClientList');
+Route::get('/Admin/modifierClient/{id}/edit', 'UsersController@editClient')->name('A_PartneireList');;
+Route::post( '/Admin/modifierClient/{id}/edit', 'UsersController@updateUser');
+Route::get('/Admin/modifierPartenaire/{id}/edit', 'UsersController@editPartenaire');
+Route::post('/Admin/modifierPartenaire/{id}/edit', 'UsersController@updateUser');
+Route::delete( '/Admin/gererClient/{id}/delete', 'UsersController@deleteClient');
 
 #################################  Profile Controlle ################################# 
 Route::get('/Partenaire/afficherProfile', 'ProfileController@index')->name('profile_partenaire');
