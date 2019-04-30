@@ -8,6 +8,7 @@ use Auth;
 
 class VoituresController extends Controller
 {
+   
     public function ajoutVoitureSuccess()
     {
         $voiture = new Voiture();

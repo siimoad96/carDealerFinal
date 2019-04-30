@@ -15,8 +15,9 @@
         <!-- les Annonces -->
         <div class="row">
                 <div class="col-lg-4">
-                <h2>Annonce 2</h2>
-
+                @foreach($annonces as $anno)
+                <h2>{{$anno->title}}</h2>
+@endforeach
                 <p>Info sur l'annonce  ................................................... etc.
                         Les véhicules Tesla sont déclinés en 1 modèles depuis 2013. Utilisez le formulaire et accédez aux fiches techniques de votre modèle Tesla. 
                 </p>
