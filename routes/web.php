@@ -12,6 +12,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/', 'PagesController@index');
 Route::get('/about', 'PagesController@about');
 Route::get('/services', 'PagesController@services');
+Route::get('/Client/accueil', 'PagesController@accueil');
 Route::get('/Client/recherche', 'PagesController@recherche');
 Route::get('/Client/resultat', 'PagesController@resultat');
 Route::get( '/Admin/accueil', 'PagesController@accueil');
@@ -21,8 +22,8 @@ Route::get( '/Partenaire/accueil', 'PagesController@part');
 
 
 #################################  Voitures Controller ################################# 
-Route::get('/Partenaire/ajoutvoiture', 'VoituresController@ajoutvoiture');
-Route::post('/Partenaire/ajoutvoiture/update', 'VoituresController@ajoutVoitureSuccess')->name('voiture.add');
+Route::get('/Partenaire/ajoutVoiture', 'VoituresController@ajoutVoiture');
+Route::post('/Partenaire/ajoutVoiture', 'VoituresController@ajoutVoitureSuccess')->name('voiture.add');
 
 #################################  Annonces Controller ################################# 
 Route::get('/Partenaire/ajoutannonce', 'AnnoncesController@ajoutannonce');

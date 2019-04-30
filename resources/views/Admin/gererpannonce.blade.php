@@ -20,25 +20,6 @@
                         <th>Supprimer client</th>
         
                     </tr>
-                 <?php
-        /*
-                 foreach(getClients($username) as $key => $value) {
-                     ?>
-                    <tr>
-                        <form action="modifier.php" method="POST" >
-                            <td><?= $value['id_user'] ?></td>
-                            <td><?= $value['username'] ?></td>
-                            <td><?= $value['lastname'] ?></td>
-                            <td><?= $value['firstname'] ?></td>
-                            <td><?= $value['cin'] ?></td>
-                            <td><?= $value['address'] ?></td>
-                            <td><?= '0'.$value['tel'] ?></td>
-                            <td> <input type="submit" class="button5" value="Modifier"></td>
-                            <td> <input type="submit" class="button5" value="Supprimer"></td>
-                            <input type="hidden" name="id_client"  value=" <?php echo $value['id_user']; ?>">
-                        </form>
-                    </tr>
-                 <?php }*/ ?>
              
                     </table>
                   

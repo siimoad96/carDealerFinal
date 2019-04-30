@@ -66,7 +66,7 @@ class ProfileController extends Controller
             // Make a file path where image will be stored [ folder path + file name + file extension]
             $filePath = $folder . $name . '.' . $image->getClientOriginalExtension();
             // Upload image
-            $this->uploadOne($image, $folder, 'public', $name);
+            $this->uploadUserImage($image, $folder, 'public', $name);
             // Set user profile image path in database to filePath
             $user->profile_image = $filePath;
         }

@@ -6,7 +6,7 @@
           <ul class="nav navbar-nav">
             <li ><a href="/Partenaire/accueil">Accueil</a></li>
             <li ><a href="/Partenaire/ajoutannonce">Ajouter Annonce</a></li>
-            <li ><a href="/Partenaire/ajoutvoiture">Ajouter Voiture</a></li>
+            <li ><a href="/Partenaire/ajoutVoiture">Ajouter Voiture</a></li>
             <li ><a href="/Partenaire/listereservations">Reservations</a></li>
 
           </ul>

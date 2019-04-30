@@ -10,10 +10,16 @@ use App\Traits\UploadTrait;
 
 class VoituresController extends Controller
 {
-    public function ajoutvoiture()
+    use UploadTrait;
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+    public function ajoutVoiture()
     {
         $title = 'Ajouter une voiture';
-        return view('Partenaire.ajoutvoiture')->with('title', $title);
+        return view('Partenaire.ajoutVoiture')->with('title', $title);
     }
     public function ajoutVoitureSuccess( Request $request)
     {
@@ -29,8 +35,7 @@ class VoituresController extends Controller
         ]);
 
         // Get current user
-        //$voiture = Voiture::findOrFail(auth()->user()->id);
-        
+        //$voiture = Voiture::all();
         $voiture = new Voiture();
         $voiture->marque = request('marque');
         $voiture->type = request('type');
@@ -46,13 +51,13 @@ class VoituresController extends Controller
             // Get image file
             $image = $request->file('car_image');
             // Make a image name based on user name and current timestamp
-            $name = str_slug($request->input('name')) . '_' . time();
+            $name = str_slug($request->input('marque')) . '_' . time();
             // Define folder path
             $folder = '/uploads/images/';
             // Make a file path where image will be stored [ folder path + file name + file extension]
             $filePath = $folder . $name . '.' . $image->getClientOriginalExtension();
             // Upload image
-            $this->uploadOne($image, $folder, 'public', $name);
+            $this->uploadCarImage($image, $folder, 'public', $name);
             // Set user profile image path in database to filePath
             $voiture->car_image = $filePath;
         }
