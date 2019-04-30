@@ -30,22 +30,22 @@ class HomeController extends Controller
     public function index()
     {
 
-        if (Auth::user()->privilege == 0) {
-            $annonces = DB::table('annonces')->get();
-        
-            return view("Client.accueil")->with(compact('annonces',$annonces));}
+        if (Auth::user()->privilege == 0)
+        {$annonces = DB::table('annonces')->get(); 
+
+            return view( 'Client.accueil')->with(compact('annonces',$annonces));}
         elseif ( Auth::user()->privilege == 1) {
             return view("Partenaire.accueil");
         }
         else
             return view("Admin.accueil");    }
+
+
    /* public function accueilClient()
     {
-        $annonces = Annonce::all;
-        $annonce = $annonces->get();
-        return view('Client.accueil')->with(compact('annonce', 'annonces'));
+        $annonces = DB::table('annonces')->get();
+        return View::make( 'Client.accueil', ['annonces' => $annonces]);
     }*/
-
 
     
 }
