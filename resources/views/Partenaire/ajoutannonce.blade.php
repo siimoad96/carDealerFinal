@@ -1,4 +1,3 @@
-
 @extends('layouts.partenaire')  
 @section('content')
 
@@ -12,7 +11,8 @@
              <form method="POST" action="ajoutannonce">
 
                  {{ csrf_field() }}
-
+            
+                 <label>Voiture:</label><br><br>
                 <select type="text"  name = "vehicule">
 
                     @foreach($voitures as $voit)

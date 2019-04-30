@@ -16,7 +16,7 @@ class VoituresController extends Controller
     {
         $this->middleware('auth');
     }
-    public function ajoutVoiture()
+        public function ajoutVoiture()
     {
         $title = 'Ajouter une voiture';
         return view('Partenaire.ajoutVoiture')->with('title', $title);

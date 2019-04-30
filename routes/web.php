@@ -15,7 +15,7 @@ Route::get('/services', 'PagesController@services');
 Route::get('/Client/accueil', 'PagesController@accueil');
 Route::get('/Client/recherche', 'PagesController@recherche');
 Route::get('/Client/resultat', 'PagesController@resultat');
-Route::get( '/Admin/accueil', 'PagesController@accueil');
+Route::get('/Client/accueil', 'HomeController@accueilClient');
 Route::get('/Admin/gererpannonce', 'PagesController@gererpannonce');
 Route::get('/Partenaire/listereservations', 'PagesController@listereservations');
 Route::get( '/Partenaire/accueil', 'PagesController@part');

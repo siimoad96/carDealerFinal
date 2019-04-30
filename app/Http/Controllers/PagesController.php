@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Auth;
 use App\Voiture;
+use App\Annonce;
+
 use Session;
 
 
@@ -12,8 +14,12 @@ class PagesController extends Controller
 {
     public function index()
     {
-        $title = 'Bienvenu au CarDealer';
-        return view('pages.index_salma')->with('title', $title);
+        $title = 'Bienvenue au CarDealer';
+        $ann = Annonce::where('privilege','=','0');
+        $annonces = $ann->get(); 
+
+        return view('pages.index_salma')->with('title', $title)->with(compact('annonces',$annonces));;
+    
     }
 
     public function about()

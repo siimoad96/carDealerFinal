@@ -14,10 +14,25 @@
 
         <!-- les Annonces -->
         <div class="row">
-                @foreach($annonces as $annonce)
                 <div class="col-lg-4">
-                <h2>{{$annonce->title}}</h2>
-                <p>{{$annonce->city}} <br> {{$annonce->price}} <br> {{$annonce->date}}
+                @foreach($annonces as $anno)
+                <h2>{{$anno->title}}</h2>
+@endforeach
+                <p>Info sur l'annonce  ................................................... etc.
+                        Les véhicules Tesla sont déclinés en 1 modèles depuis 2013. Utilisez le formulaire et accédez aux fiches techniques de votre modèle Tesla. 
+                </p>
+                <p><a class="btn btn-primary" href="#" role="button">View details &raquo;</a></p>
+                </div>
+                <div class="col-lg-4">
+                <h2>Annonce 2</h2>
+                <p>Info sur l'annonce  ................................................... etc.
+                        Les véhicules Tesla sont déclinés en 1 modèles depuis 2013. Utilisez le formulaire et accédez aux fiches techniques de votre modèle Tesla.  </p>
+                <p><a class="btn btn-primary" href="#" role="button">View details &raquo;</a></p>
+            </div>
+                <div class="col-lg-4">
+                <h2>Annonce 3</h2>
+                <p>Info sur l'annonce  ................................................... etc.
+                        Les véhicules Tesla sont déclinés en 1 modèles depuis 2013. Utilisez le formulaire et accédez aux fiches techniques de votre modèle Tesla. 
                 </p>
                 <p><a class="btn btn-primary" href="#" role="button">View details &raquo;</a></p>
                 </div>
