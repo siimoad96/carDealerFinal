@@ -117,5 +117,56 @@ public function reserverAnnonce(Request $request)
             $annonce->save();
             return "Added Successfully to database :P ";
         }
+    public function indexAnnonce()
+    {
+        $annonces = DB::table('annonces as a')
+        ->join('voitures as v','a.voiture_id','v.id')
+        ->join('users as u','a.partenaire_id','u.id')
+        ->select('a.id', 'a.title', 'a.city', 'a.price', 'a.date', 'a.from', 'a.to','a.privilege','u.name as u_name', 'v.marque as v_marque')
+        ->get();
+        return view('Admin.gererAnnonce', ['annonces' => $annonces]);
+    }
+    public function editAnnonce($id)
+    {
+        $annonce = Annonce::where('id', $id)->firstOrFail();
+        return view('Admin.modifierAnnonce', compact('annonce'));
+    }
+    public function updateAnnonce(Request $request, $id)
+    {
+        $request->validate([
+            'titre'              =>  'required',
+            'city'              =>  'required',
+            'price'              =>  'required',
+            'date'              =>  'required',
+            'from'              =>  'required',
+            'to'              =>  'required',
+            'date'              =>  'required',
+            'partenaire'              =>  'required',
+            'voiture'              =>  'required',
+            'status'              =>  'required',
+
+
+        ]);
+        $annonce = DB::table('annonces as a')
+            ->join('voitures as v', 'a.voiture_id', 'v.id')
+            ->join('users as u', 'a.partenaire_id', 'u.id')
+            ->select('a.id', 'a.title', 'a.city', 'a.price', 'a.date', 'a.from', 'a.to', 'a.privilege', 'u.name as u_name', 'v.marque as v_marque')
+            ->where('a.id','=',$id)
+            ->get();
+        $annonce->title = $request->input('name');
+        $annonce->city = $request->input('city');
+        $annonce->price = $request->input('price');
+        $annonce->date = $request->input('date');
+        $annonce->from = $request->input('from');
+        $annonce->to = $request->input('to');
+        $annonce->privilege = $request->input('privilege');
+        $annonce->u_name = $request->input('u_name');
+        $annonce->v_marque = $request->input('v_marque');
+
+        $annonce->save();
+
+
+        return redirect()->back()->with(['title' => 'Client updated successfully.']); /* redirige vers la vue d'édition */
+    }
     
 }

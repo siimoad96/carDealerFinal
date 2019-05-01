@@ -34,15 +34,19 @@ Route::get('/Client/resultat', 'AnnoncesController@resultat');
 Route::post('/Client/resultat', 'AnnoncesController@resultat');
 Route::post('/Client/reserverAnnonce', 'AnnoncesController@reserverAnnonce');
 Route::get('/Client/reserverAnnonce', 'AnnoncesController@reserverAnnonce');
-
+Route::get('/Admin/gererAnnonce', 'AnnoncesController@indexAnnonce')->name('A_AnnonceList');
+Route::get('/Admin/modifierAnnonce/{id}/edit', 'AnnoncesController@editAnnonce');
+Route::post('/Admin/modifierAnnonce/{id}/edit', 'AnnoncesController@updateAnnonce');
 #################################  Users Controller #################################
-Route::get('/Admin/gererPartenaire', 'UsersController@indexPartenaire');
+Route::get('/Admin/gererPartenaire', 'UsersController@indexPartenaire')->name('A_PartenaireList');
 Route::get('/Admin/gererClient', 'UsersController@indexClient')->name('A_ClientList');
-Route::get('/Admin/modifierClient/{id}/edit', 'UsersController@editClient')->name('A_PartneireList');;
+Route::get('/Admin/modifierClient/{id}/edit', 'UsersController@editClient');
 Route::post( '/Admin/modifierClient/{id}/edit', 'UsersController@updateUser');
 Route::get('/Admin/modifierPartenaire/{id}/edit', 'UsersController@editPartenaire');
 Route::post('/Admin/modifierPartenaire/{id}/edit', 'UsersController@updateUser');
-Route::delete( '/Admin/gererClient/{id}/delete', 'UsersController@deleteClient');
+Route::get( '/Admin/gererClient/{id}/delete', 'UsersController@deleteClient')->name('client.delete');
+Route::get('/Admin/gererPartenaire/{id}/delete', 'UsersController@deletePartenaire')->name('partenaire.delete');
+
 
 #################################  Profile Controlle ################################# 
 Route::get('/Partenaire/afficherProfile', 'ProfileController@index')->name('profile_partenaire');

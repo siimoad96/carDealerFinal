@@ -119,8 +119,15 @@ class UsersController extends Controller
         //
     }
     public function deleteClient($id){
-        User::destroy($id);
-        return redirect()->back()->with(['status' => 'User deleted successfully.']);;
+        $client = User::where('id','=',$id)->first();
+        $client->delete();
+        return redirect()->route('A_ClientList')->with(['title' => 'User deleted successfully.']);;
+    }
+    public function deletePartenaire($id)
+    {
+        $client = User::where('id', '=', $id)->first();
+        $client->delete();
+        return redirect()->route('A_PartenaireList')->with(['title' => 'User deleted successfully.']);;
     }
     //lister les villes existantes
     public function ville()

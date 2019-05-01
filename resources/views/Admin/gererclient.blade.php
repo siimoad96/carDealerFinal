@@ -26,9 +26,7 @@
                         <td>{{ $client->city }}</td>
                         <td>{{ $client->tel }}</td>
        <td><a href="{{ URL::action('UsersController@editClient', $client->id) }}" class="button">Modifier</a></td>
-       <form method = 'DELETE' action="URL::action('UsersController@deleteClient')">
-        <td><a href="" class="button">Supprimer</a></td>                                      
-       </form>
+       <td><a href="{{ URL::action('UsersController@deleteClient', $client->id) }}" class="button">Supprimer</a></td>                                      
     </tr>
                     @endforeach
                     </table>

@@ -7,7 +7,7 @@
             <li ><a href="/Admin/accueil">Accueil</a></li>
             <li><a href="/Admin/gererClient">Clients</a></li>
             <li><a href="/Admin/gererPartenaire">Partenaires</a></li>
-            <li><a href="/Admin/gererpannonce">Annonces</a></li>
+            <li><a href="/Admin/gererAnnonce">Annonces</a></li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
             <li><a class="dropdown-item" href="{{ route('profile_admin') }}"><span class="glyphicon glyphicon-user"></span> Profile</a></li>
