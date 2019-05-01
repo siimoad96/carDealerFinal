@@ -7,22 +7,24 @@
             <br>
             <p class="lead">LOCATION DE VOITURE AU MAROC </p>
             <br><br> 
-            <p><a class="btn btn-lg btn-info" href="/Client/recherche" role="button">Rechercher une voiture</a></p>
+            <p><a class="btn btn-lg btn-info" href="/Client/rechercheDate" role="button">Rechercher une voiture</a></p>
     </div>
 
 
 
         <!-- les Annonces -->
         <div class="row">
+                @foreach($annonces as $annonce)
                 <div class="col-lg-4">
-                @foreach($annonces as $anno)
-                <h2>{{$anno->title}}</h2>
-                <br>
-                <h5>{{$anno->city}}</h5>
-                <h5>{{$anno->price}}</h5>
+                <a href="/annonce/{{$annonce->id}}">
+                <h2>{{$annonce->title}}</h2>
+                <p>{{$annonce->city}} <br> {{$annonce->price}} <br> {{$annonce->date}}
+                </p>
+                </a>
+                 <p><a class="btn btn-primary" href="/annonce/{{$annonce->id}}" role="button">View details &raquo;</a></p> 
+                
                 </div>
-@endforeach
-
+                @endforeach
                
             </div>
      
