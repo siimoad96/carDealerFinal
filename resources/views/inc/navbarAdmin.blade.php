@@ -1,10 +1,10 @@
 <nav class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container-fluid">
+        <div class="container">
           <div class="navbar-header">
-            <a class="navbar-brand" href="#">{{config('app.name','CarDealer')}}</a>
+            <a class="navbar-brand" href="/home">{{config('app.name','CarDealer')}}</a>
           </div>
           <ul class="nav navbar-nav">
-            <li ><a href="/Admin/accueil">Accueil</a></li>
+            <li ><a href="/home">Accueil</a></li>
             <li><a href="/Admin/gererClient">Clients</a></li>
             <li><a href="/Admin/gererPartenaire">Partenaires</a></li>
             <li><a href="/Admin/gererAnnonce">Annonces</a></li>

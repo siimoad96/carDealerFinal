@@ -1,0 +1,1 @@
+<small>Le partenaire a rejete votre demande , <strong><a href="/home">Voir autres annonces</a></strong></small>

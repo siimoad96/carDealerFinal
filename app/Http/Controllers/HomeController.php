@@ -12,40 +12,31 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 class HomeController extends Controller
 {
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
     public function __construct()
     {
         $this->middleware('auth');
     }
 
-    /**
-     * Show the application dashboard.
-     *
-     * @return \Illuminate\Contracts\Support\Renderable
-     */
     public function index()
     {
 
         if (Auth::user()->privilege == 0)
-        {$annonces = DB::table('annonces')->get(); 
+        {$annonces =Annonce::with('user')->where('privilege','<>','2')->get(); 
 
             return view( 'Client.accueil')->with(compact('annonces',$annonces));}
         elseif ( Auth::user()->privilege == 1) {
-            return view("Partenaire.accueil");
+            $title = 'Liste des réservations ';
+            $id = Auth::id();
+            $annonce = Annonce::with('user');
+            $annoncess= $annonce->where([
+                ['partenaire_id', '=', $id], ['privilege', '=', '1']
+            ]);
+            $annonces = $annoncess->get();
+            return view('Partenaire.accueil')->with('title', $title)->with(compact('annonces', $annonces));
+            
         }
         else
             return view("Admin.accueil");    }
-
-
-   /* public function accueilClient()
-    {
-        $annonces = DB::table('annonces')->get();
-        return View::make( 'Client.accueil', ['annonces' => $annonces]);
-    }*/
 
     
 }

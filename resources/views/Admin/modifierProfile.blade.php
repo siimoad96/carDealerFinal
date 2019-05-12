@@ -41,7 +41,7 @@
                                                 <br>
                                             </h3>
                                             <hr>
-                                    <form action="{{ route('profile.update') }}" method="POST" role="form" enctype="multipart/form-data">
+                                    <form action="{{ route('profile_admin.updateProfile') }}" method="POST" role="form" enctype="multipart/form-data">
                                         @csrf
                                         <div class="form-group row">
                                             <label for="profile_image" class="col-md-4 col-form-label text-md-right">Profile Image</label>

@@ -20,6 +20,15 @@ class CreateCommentVoituresTable extends Migration
             $table->foreign('voiture_id')->references('id')->on('voitures');
             $table->timestamps();
         });
+        Schema::table('comment_voitures', function (Blueprint $table) {
+            $table->dropColumn('comment');
+
+        });
+        Schema::table('comment_voitures', function (Blueprint $table) {
+            $table->string('comment_positive');
+            $table->string('comment_negative');
+
+        });
     }
 
     /**
@@ -29,6 +38,8 @@ class CreateCommentVoituresTable extends Migration
      */
     public function down()
     {
+
         Schema::dropIfExists('comment_voitures');
+
     }
 }

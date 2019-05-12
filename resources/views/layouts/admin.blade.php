@@ -15,7 +15,7 @@
         @include('inc.navbarAdmin')
         <br> <br>
         <div class="container">
-             @yield('contentAdmin')
+             @yield('content')
         </div>
     </body>
 </html>

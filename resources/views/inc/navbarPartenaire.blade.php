@@ -1,18 +1,25 @@
 <nav class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container-fluid">
+        <div class="container">
           <div class="navbar-header">
-            <a class="navbar-brand" href="#">{{config('app.name','CarDealer')}}</a>
+            <a class="navbar-brand" href="/home">{{config('app.name','CarDealer')}}</a>
           </div>
-          <ul class="nav navbar-nav">
-            <li ><a href="/Partenaire/accueil">Accueil</a></li>
-            <li ><a href="/Partenaire/ajoutannonce">Ajouter Annonce</a></li>
-            <li ><a href="/Partenaire/ajoutVoiture">Ajouter Voiture</a></li>
-            <li ><a href="/Partenaire/listereservations">Reservations</a></li>
-
-          </ul>
           <ul class="nav navbar-nav navbar-right">
-            <li><a class="dropdown-item" href="{{ route('profile_partenaire') }}"><span class="glyphicon glyphicon-user"></span> Profile</a></li>
+              <li class="dropdown" id="markAsRead" onclick="markNotificationAsRead()">
+                <a href="#" class ="dropdown-item" data-toggle="dropdown" role="button" aria-expanded="false">
+                  <span class="glyphicon glyphicon-globe"></span> Notifications <span class="badge">{{count(auth()->user()->unreadNotifications)}}</span>
+                </a>
+                <ul class="dropdown-menu">
+                  @forelse (auth()->user()->unreadNotifications as $notification)
+                    @include('notifications.'.snake_case(class_basename($notification->type)))
+                    @empty
+                      Pas de notifications.
+                  @endforelse
+                    </ul>
+              </li>
+
+            <li><a class="" href="{{ route('profile_partenaire') }}"><span class="glyphicon glyphicon-user"></span> Profile</a></li>
             <li><a href="{{ route('logout') }}"><span class="glyphicon glyphicon-log-in"></span> Déconnexion</a></li>
-          </ul>
+        </ul>
         </div>
+      </div>
 </nav>

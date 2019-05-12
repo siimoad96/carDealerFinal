@@ -37,7 +37,7 @@
                   </tr>
         </table>
 
-      <a href="{{route('profile_client.update')}}" class="btn btn-lg btn-info"> Modifier </a>
+      <a href="{{route('profile_client.update')}}" class="btn btn-lg btn-primary"> Modifier </a>
     </div>
   </div>
 </div>

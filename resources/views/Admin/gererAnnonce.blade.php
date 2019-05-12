@@ -30,10 +30,19 @@
                         <td>{{ $annonce->date }}</td>
                         <td>{{ $annonce->from }}</td>
                         <td>{{ $annonce->to }}</td>
-                        <td>{{ $annonce->u_name }}</td>
+                        <td>{{ $annonce->u_name }} </td>
                         <td>{{ $annonce->v_marque }}</td>
-                        <td>{{ $annonce->privilege }}</td>
+                        <td> <?php if( $annonce->privilege == 0)
+                                echo "Non reservee";
+                                elseif ( $annonce->privilege == 1) 
+                                echo "Demandé au reservation";
+                                
+                                else 
+                                    echo "Reservee";
+                                ?>
+                         </td>
        <td><a href="{{ URL::action('AnnoncesController@editAnnonce', $annonce->id) }}" class="button">Modifier</a></td>
+       <td><a href="{{ URL::action('AnnoncesController@deleteAnnonce', $annonce->id) }}" class="button">Supprimer</a></td>                                      
 
 
                     </tr>

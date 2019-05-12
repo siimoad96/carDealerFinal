@@ -1,0 +1,1 @@
+<small>Votre demande a ete bien pris en consideration , <strong>Verifier votre mail.</strong></small>

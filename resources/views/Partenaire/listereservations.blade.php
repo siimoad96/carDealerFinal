@@ -6,23 +6,29 @@
                 <br>
 
                 <div class="container">
-                        <h1>Liste des réservations :</h1> <br>
-                    <form method="POST" action="">
-                        <label>N° annonce :</label>
-                            <?php
-                                //foreach() ---- reservations :
-                            ?>
-                            <input type='text'  class="form-control"value='<?php echo 'idAnnonce'  //idAnnonce ?>' name='annonce'>
-                            <br><br>
-                                <label>Note client :</label>
-                            <input type='text' class="form-control" value='<?php echo  'idNote' //idNote?>' name='note'>
-                            <?php 
-                                //end foreach
-                            ?>
-                        <br><br>
-                        <input type="submit" class="btn btn-lg btn-info" value="Confirmer" name = "submit">
-                        <br><br>
-                    </form>
+                        <h1>Les annonces ayant une demande de réservation:</h1> <br>
+                           
+                        <h3>Les annonces qui ont des demandes de réservations</h3>
+                        <table>
+                            <tr>
+                                <th>Titre </th>
+                                <th>La ville </th>
+                                <th>Le prix</th>
+                                <th>La date</th>
+                                <th>Les demandes de réservation </th>
+                            </tr>
+                        @foreach ($annonces as $a)
+                        <tr>
+                            <td>{{ $a->title }}</td>
+                            <td>{{ $a->city }}</td>
+                            <td> {{ $a->price }} </td>
+                             <td> {{ $a->date  }} </td>
+                        <td> <a class="btn btn-primary"  href="/Partenaire/demandesReservation/{{$a->id}}" role="button">Voir&raquo;</a>
+                         </td>
+                        </tr>
+                        @endforeach  
+                    </table>
+                    
                 </div>
             </div>
         </div>

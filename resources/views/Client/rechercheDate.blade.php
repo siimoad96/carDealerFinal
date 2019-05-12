@@ -1,77 +1,28 @@
 @extends('layouts.client')
 
 @section('content')
+@foreach($annonces as $annonce)
 
-        <h1  ></h1>
-        <div >
+        <div class="container" align="center">
+        <h1  >Infos de la voiture :</h1>
+        <br> <br>
+        <h2> {{$annonce->title}} </h2>
+        <h3> Ville :{{$annonce->city}} </h3>
+        <h3>Prix: {{$annonce->price}} </h3>
+        <h3>Date : {{$annonce->date}} </h3><br>
 
-            <h3>Veuillez remplire les champs</h3><br><br>
-                <form action="/Client/resultat"  method="POST">
-                {{ csrf_field() }}
-                {{ method_field('get') }}
+        <form type="POST" action="/Client/reserverAnnonce" >
 
-                <div class="form-group">
+            {{ csrf_field() }}
+            {{ method_field('get')}}
 
-                        @foreach($annonces as $annonce)
-                            <input type="hidden" name="id" value='{{$annonce->id}}'>
-                            <input type="hidden" name="voiture_id" value='{{$annonce->voiture_id}}'>
-                        @endforeach    
-
-                    <label for="type">Ville</label>
-                    <select type="text" class="form-group" name = "ville" required=required>
-                        <option selected=true>Selectionner une ville</option>
-                        @foreach($villes as $ville)
-
-                            <option>{{$ville->city}}</option>
-
-                        @endforeach 
-                    </select>
-                     </div>
-                
-                <div class="form-group">
-                    <label for="type">Marque</label>
-                    <select type="text" class="form-group" name = "marque">
-                    <option selected=true>Selectionner une marque</option>
-
-                        @foreach($marques as $marque)
-
-                            <option>{{$marque->marque }}</option>
-
-                        @endforeach                                  
-                    </select>               
-                     </div>
-                <div class="form-group">
-                    <label for="type">Type</label>
-                    <select type="text" class="form-group" name = "type">
-                    <option selected=true>Selectionner un type</option>
-
-                        @foreach($types as $type)
-
-                            <option>{{$type->type }}</option>
-
-                        @endforeach                                  
-                    </select>        
-                </div>
-                <div class="form-group">
-                    <label for="type">Modele</label>
-                    <select type="text" class="form-group" name = "modele">
-                    <option selected=true>Selectionner un modele</option>
-
-                        @foreach($modeles as $modele)
-
-                            <option>{{$modele->modele }}</option>
-
-                        @endforeach                                  
-                    </select>   
-               
-                <br> <br>
-                <button type="submit" class="btn btn-lg btn-info" >Rechercher</button>
-                
-               
-                </form>
-            
-        </div>
-        
-
+       <input type="hidden" name="_token" value="{{ csrf_token() }}">
+       <INPUT TYPE="hidden" name='id' VALUE="{{$annonce->id}}">
+<br>
+       <INPUT TYPE="submit" class="btn btn-info"  VALUE="Consulter">
+       </form>
+       <br><br><br>
+       </div>
+       @endforeach
 
 @endsection

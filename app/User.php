@@ -10,21 +10,21 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 class User extends Authenticatable
 {
     use Notifiable;
+protected $table = 'users';
+    protected $primaryKey = 'id';
 
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array
-     */
+    public function annonces()
+    {
+        return $this->hasMany(Annonce::class,'id','partenaire_id');
+    }
+    public function demandes()
+    {
+        return $this->hasMany(Demande::class, 'id', 'client_id');
+    }
     protected $fillable = [
         'name','city','tel', 'privilege','email', 'password', 'profile_image'
     ];
 
-    /**
-     * The attributes that should be hidden for arrays.
-     *
-     * @var array
-     */
     public function isRole(){
         return $this->privilege;
     }
@@ -33,12 +33,11 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
-    /**
-     * The attributes that should be cast to native types.
-     *
-     * @var array
-     */
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+    public function notes(){
+
+        return $this->hasOne('App\Note');
+    }
 }

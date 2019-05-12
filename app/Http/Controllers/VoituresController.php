@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use Session;
 use Illuminate\Http\Request;
 use App\Voiture;
+use App\NoteVoiture;
 use Auth;
 use App\User;
 use App\Traits\UploadTrait;
@@ -63,6 +64,11 @@ class VoituresController extends Controller
         }
         // Persist user record to database
         $voiture->save();
+        $voiture->notevoiture = NoteVoiture::create([
+            'voiture_id' => $voiture->id,
+            'note' => 0
+        ]);
+        $voiture->notevoiture->save();
 
         // Return user back and show a flash message
         return redirect()->back()->with(['status' => 'Car added successfully.']);

@@ -1,0 +1,1 @@
+<small>Le partenaire a accepte votre demande , <strong>Verifier votre mail.</strong></small>

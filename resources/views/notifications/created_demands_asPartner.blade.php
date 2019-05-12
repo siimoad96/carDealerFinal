@@ -1,0 +1,1 @@
+<small>Vous avez une nouvelle demande de reservation , <strong><a href="/home">Plus de details...</a></strong></small>
